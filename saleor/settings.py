@@ -48,7 +48,7 @@ MANAGERS = ADMINS
 
 _DEFAULT_CLIENT_HOSTS = "localhost,127.0.0.1"
 
-ALLOWED_CLIENT_HOSTS = os.environ.get("ALLOWED_CLIENT_HOSTS")
+ALLOWED_CLIENT_HOSTS = os.environ.get("ALLOWED_CLIENT_HOSTS","localhost,127.0.0.1,comercio4.herokuapp.com")
 if not ALLOWED_CLIENT_HOSTS:
     if DEBUG:
         ALLOWED_CLIENT_HOSTS = _DEFAULT_CLIENT_HOSTS
@@ -59,7 +59,7 @@ if not ALLOWED_CLIENT_HOSTS:
 
 ALLOWED_CLIENT_HOSTS = get_list(ALLOWED_CLIENT_HOSTS)
 
-INTERNAL_IPS = get_list(os.environ.get("INTERNAL_IPS", "127.0.0.1"))
+INTERNAL_IPS = get_list(os.environ.get("INTERNAL_IPS", "127.0.0.1,comercio4.herokuapp.com"))
 
 DATABASES = {
     "default": dj_database_url.config(
